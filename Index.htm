@@ -1,32 +1,55 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css' rel='stylesheet' />
-  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js'></script>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monthly Calendar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<style>
+    @keyframes slide-out-left {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(-100%); opacity: 0; }
+    }
+    .slide-out-left {
+        animation: slide-out-left 0.3s ease-in-out forwards;
+    }
+
+    @keyframes slide-out-right {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+    }
+    .slide-out-right {
+        animation: slide-out-right 0.3s ease-in-out forwards;
+    }
+
+    @keyframes slide-in-from-right {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    .slide-in-from-right {
+        animation: slide-in-from-right 0.3s ease-in-out forwards;
+    }
+
+    @keyframes slide-in-from-left {
+        from { transform: translateX(-100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    .slide-in-from-left {
+        animation: slide-in-from-left 0.3s ease-in-out forwards;
+    }
+</style>
 </head>
-<body>
-  <div id='calendar'></div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        events: [
-          {
-            title: '薪水 +$200',
-            start: '2025-10-29',
-            color: 'green'
-          },
-          {
-            title: '晚餐 -$50',
-            start: '2025-10-30',
-            color: 'red'
-          }
-          // 可自動產生事件
-        ]
-      });
-      calendar.render();
-    });
-  </script>
-</body>
+  <body class="bg-slate-100 dark:bg-slate-900">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
