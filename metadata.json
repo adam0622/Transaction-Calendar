@@ -1,0 +1,5 @@
+{
+  "name": "Transaction Calendar",
+  "description": "A sleek and responsive transaction calendar application built with React and Tailwind CSS. It allows users to view transactions by month or year, manage recurring events, and categorize their spending.",
+  "requestFramePermissions": []
+}
